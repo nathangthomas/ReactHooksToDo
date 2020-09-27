@@ -9,6 +9,29 @@ function Todo({ todo }) {
   );
 };
 
+function TodoForm({ addTodo }) {
+  const [value, setValue] = React.useState("");
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Add A New ToDo"
+        className="input"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+    </form>
+  );
+}
+
 function App() {
   const [todos, setTodos] = React.useState([
     {text: "Learn React"},
@@ -16,8 +39,16 @@ function App() {
     {text: "Dive into Redux"},
   ]);
 
+  const addTodo = text => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
+
   return(
     <div className="app">
+      <div className="header-container">
+          <h1>To Dos</h1>
+      </div>
       <div className="todo-list">
         {todos.map((todo, index)=> (
           <Todo
@@ -26,6 +57,7 @@ function App() {
             todo={todo}
           />
         ))}
+        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   );
