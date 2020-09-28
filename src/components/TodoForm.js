@@ -14,6 +14,7 @@ function TodoForm({ addTodo }) {
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
       <input
+        className="todo-form-input"
         type="text"
         placeholder="Add A New ToDo"
         className="input"

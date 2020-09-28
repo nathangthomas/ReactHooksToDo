@@ -5,12 +5,6 @@ import TodoForm from './TodoForm';
 
 function App() {
   const [todos, setTodos] = React.useState([
-    // {text: "Learn React",
-    //  isCompleted: false},
-    // {text: "Get a better grasp on React Hooks",
-    //  isCompleted: false},
-    // {text: "Dive into Redux",
-    //  isCompleted: false},
   ]);
 
   const addTodo = text => {
@@ -50,7 +44,9 @@ function App() {
               removeTodo={removeTodo}
             />
           ))}
+        <div className="todo-form-container">
           <TodoForm addTodo={addTodo} />
+        </div>
         </div>
       </div>
     </div>

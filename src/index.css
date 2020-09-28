@@ -15,15 +15,19 @@
 
 .todo-list-container{
   padding: 10px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .todo-list {
   background: #e8e8e8;
   border-radius: 4px;
-  max-width: 400px;
   padding: 5px;
 }
 
+.todo-form-container{
+  text-align: center;
+}
 
 .todo {
   align-items: center;
